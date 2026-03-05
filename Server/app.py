@@ -7,21 +7,21 @@ app = Flask(__name__)
 def get_files():
     return {
         "name": "Root",
-        "type": "folder",
+        "file_type": "folder",
         "children": [
             {
                 "name": "Documents",
-                "type": "folder",
+                "file_type": "folder",
                 "children": [
-                    {"name": "resume.jpg", "type": "image", "size": 1024},
-                    {"name": "budget.txt", "type": "text", "size": 250}
+                    {"name": "resume.jpg", "file_type": "image", "size": 1024},
+                    {"name": "budget.txt", "file_type": "text", "size": 250}
                 ]
             },
             {
                 "name": "System",
-                "type": "folder",
+                "file_type": "folder",
                 "children": []
             },
-            {"name": "config.txt", "type": "text", "size": 2}
+            {"name": "config.txt", "file_type": "text", "size": 2}
         ]
     }

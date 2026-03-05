@@ -7,13 +7,15 @@
 
 import Foundation
 
-struct FolderModel: FileEntityModel {
+struct FolderModel: Codable {
     var name: String
     var type: FileType
-    var children: [FileEntityModel?]
+    var children: [FileSystemItem?]
     
-    mutating func appendChild(_ child: FileEntityModel) {
-        self.children.append(child)
+    enum CodingKeys: String, CodingKey {
+        case name
+        case type = "file_type"
+        case children
     }
 }
 

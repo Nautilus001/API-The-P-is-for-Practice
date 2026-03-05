@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FileModel: FileEntityModel {
+struct FileModel: FileEntityModel, Codable {
     var name: String
     var type: FileType
     var timestamp: Date

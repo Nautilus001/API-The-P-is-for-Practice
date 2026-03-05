@@ -9,15 +9,13 @@ import Foundation
 
 enum FileType: String, Codable {
     case image
-    case video
+    case text
     case folder
 }
 
-protocol FileEntityModel {
+protocol FileEntityModel: Codable {
     var name: String {get set}
     var type: FileType {get set}
-    
-    mutating func rename(_ name: String)
 }
 
 extension FileEntityModel {
