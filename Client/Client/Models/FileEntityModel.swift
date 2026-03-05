@@ -13,13 +13,8 @@ enum FileType: String, Codable {
     case folder
 }
 
-protocol FileEntityModel: Codable {
-    var name: String {get set}
-    var type: FileType {get set}
-}
-
-extension FileEntityModel {
-    mutating func rename(_ name: String) {
-        self.name = name
-    }
+protocol FileEntity: Identifiable {
+    var id: UUID { get }
+    var name: String { get }
+    var type: FileType { get }
 }

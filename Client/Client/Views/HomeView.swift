@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var viewModel = FolderViewModel()
     var body: some View {
         NavigationStack {
-            VStack {
-                Image("folder_icon")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("DocuRoam")
-                    .font(.largeTitle)
-                Spacer()
-                    .frame(height:100)
-                Button ("Get Started") {
+            List {
+                Section("Folders"){
+                    ForEach( 
+                }
+                Section ("Files") {
                     
                 }
             }

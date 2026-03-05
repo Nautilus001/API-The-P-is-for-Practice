@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct FolderModel: Codable {
+struct FolderModel: FileEntity, Codable {
+    var id: UUID = UUID()
     var name: String
     var type: FileType
     var children: [FileSystemItem?]

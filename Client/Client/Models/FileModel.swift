@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct FileModel: FileEntityModel, Codable {
+struct FileModel: FileEntity, Codable {    
+    var id: UUID = UUID()
     var name: String
     var type: FileType
     var timestamp: Date
