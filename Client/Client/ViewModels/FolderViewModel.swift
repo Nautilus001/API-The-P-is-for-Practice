@@ -13,9 +13,12 @@ import Foundation
 
 @Observable
 class FolderViewModel {
-    var fileSystem: [any FileEntity] = []
     
-    func getFolder () async throws -> FolderModel {
+    var rootNode: FileNode?
+    var isLoading: Bool = false
+    var errorMessage: String?
+    
+    func fetchFiles () async throws -> Void {
         //TODO: Recursion here I think
         let endpoint = "http://127.0.0.1:5000/files"
         
@@ -29,12 +32,31 @@ class FolderViewModel {
         }
         do {
             let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            return try decoder.decode(FolderModel.self, from: data)
+            decoder.keyDecodingStrategy = .useDefaultKeys
+            let box = try decoder.decode(Box.self, from: data)
+            self.rootNode = FileNode(from: box )
         } catch {
             throw ServerError.badJSON
         }
     }
+    
+    func getChildren(of node: FileNode) -> [FileNode] {
+        return node.children
+    }
+    
+    func getImage(_ child: FileNode) -> String{
+        switch child.type {
+        case .folder:
+            return "folder_icon"
+        case .image:
+            return "image_icon"
+        case .text:
+            return "text_icon"
+        default:
+            return "folder_icon"
+        }
+    }
+
 }
 
 enum ServerError: Error {
