@@ -18,6 +18,22 @@ def get_files():
                 ]
             },
             {
+                "name": "Lessons",
+                "file_type": "folder",
+                "children": [
+                    {
+                        "name": "Documents",
+                        "file_type": "folder",
+                        "children": [
+                            {"name": "resume.jpg", "file_type": "image", "size": 1024},
+                            {"name": "budget.txt", "file_type": "text", "size": 250}
+                        ]
+                    },
+                    {"name": "resume.jpg", "file_type": "image", "size": 1024},
+                    {"name": "budget.txt", "file_type": "text", "size": 250}
+                ]
+            },
+            {
                 "name": "System",
                 "file_type": "folder",
                 "children": []
