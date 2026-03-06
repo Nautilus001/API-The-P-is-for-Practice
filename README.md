@@ -1,5 +1,7 @@
 # API-The-P-is-for-Practice
 
+NOTE: MyPlayground is a scratch work file, didn't mean to add it. Feel free to ignore.
+
 This was a tough one! I started this project with 2 goals: 
 1) Create a flask app to serve some dummy JSON
 2) Consume it with Swift
